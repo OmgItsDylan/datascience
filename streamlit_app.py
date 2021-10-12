@@ -7,7 +7,10 @@ import warnings
 
 
 def main():
-  with col2:
+	
+	st.markdown(html_temp, unsafe_allow_html=True)
+	
+	with col2:
         st.subheader(" Find out the most suitable crop to grow in your farm 👨‍🌾")
         N = st.number_input("Nitrogen", 1,10000)
         P = st.number_input("Phosporus", 1,10000)
@@ -21,13 +24,8 @@ def main():
         single_pred = np.array(feature_list).reshape(1,-1)
         
         if st.button('Predict'):
-
-            loaded_model = load_model('model.pkl')
-            prediction = loaded_model.predict(single_pred)
-            col1.write('''
-		    ## Results 🔍 
-		    ''')
-            col1.success(f"{prediction.item().title()} are recommended by the A.I for your farm.")
+		loaded_model = load_model('model.pkl')
+		prediction = loaded_model.predict(single_pred)
 
 
 if __name__ == '__main__':

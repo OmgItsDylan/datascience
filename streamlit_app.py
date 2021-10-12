@@ -8,6 +8,7 @@ import warnings
 
 def main():
 	st.title('Crop Prediction')
+	st.number_input("Nitrogen", 1,10000)
 
 if __name__ == '__main__':
 	main()

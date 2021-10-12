@@ -19,7 +19,7 @@ def main():
 	input = np.array(features).reshape(1,-1)
 	
 	if st.button("FOO"):
-		model = pickle.load(open("model.plk", 'rb'))
+		model = pickle.load(open("model.pkl", 'rb'))
 		prediction = model.predict(input)
 		st.write(f"{prediction.item().title()} are recommended by the A.I for your farm.")
 
